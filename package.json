@@ -1,0 +1,36 @@
+{
+    "name": "koala",
+    "version": "0.0.1",
+    "description": "Awesome project developed with TypeORM.",
+    "devDependencies": {
+        "@types/koa": "^2.0.43",
+        "@types/koa-bodyparser": "^3.0.26",
+        "@types/koa-router": "^7.0.27",
+        "@types/node": "^8.0.29",
+        "@types/supertest": "^2.0.4",
+        "ava": "^0.24.0",
+        "ava-ts": "^0.24.0",
+        "nodemon": "^1.14.11",
+        "supertest": "^3.0.0",
+        "ts-node": "3.3.0",
+        "typescript": "2.6.2"
+    },
+    "dependencies": {
+        "glob-fs": "^0.1.7",
+        "inversify": "^4.9.0",
+        "inversify-koa-utils": "^1.0.0",
+        "koa": "^2.4.1",
+        "koa-bodyparser": "^4.2.0",
+        "koa-router": "^7.3.0",
+        "pg": "^7.3.0",
+        "reflect-metadata": "^0.1.10",
+        "typeorm": "0.1.11"
+    },
+    "scripts": {
+        "start": "PORT=3000 ts-node -F src/app.ts",
+        "test": "ava-ts **/*.spec.ts",
+        "dev": "PORT=8081 nodemon --exec ts-node src/app.ts",
+        "dev-db": "docker stack deploy -c docker.yml koala-app",
+        "install-dev-global": "No suported yet"
+    }
+}
