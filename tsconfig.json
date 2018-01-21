@@ -11,6 +11,12 @@
             "node"
         ],
         "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "koala/*": [
+                "koala/*"
+            ]
+        },
         "outDir": "./dist",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
