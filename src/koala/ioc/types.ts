@@ -1,7 +1,7 @@
 const KOALA_TYPES = {
     EntityManager: Symbol.for("EntityManager"),
     Service: Symbol.for("Service"),
-    Logger: Symbol.for("Logger"),
+    Logger: Symbol.for("Logger")
 };
 
-export { KOALA_TYPES }
+export { KOALA_TYPES };

@@ -6,7 +6,7 @@ import * as bodyParser from "koa-bodyparser";
 import { Container } from "inversify";
 import { interfaces, InversifyKoaServer, TYPE, next } from "inversify-koa-utils";
 import * as session from "koa-session";
-import { KoalaIoC, CONFIG, KOALA_TYPES } from "./koala";
+import { koalaIoC, CONFIG, KOALA_TYPES } from "./koala";
 
 const PORT: number = Number(process.env.PORT) || 3000;
 
@@ -18,7 +18,7 @@ router.get("/", (ctx, next) => {
 
 createConnection();
 
-const server = new InversifyKoaServer(KoalaIoC);
+const server = new InversifyKoaServer(koalaIoC);
 
 server.setConfig(app => {
     app.keys = ["some secret hurr"];

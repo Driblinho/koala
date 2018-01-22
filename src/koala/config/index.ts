@@ -1,3 +1,3 @@
-import { SESSION_CONFIG } from "./session.config"
+import { SESSION_CONFIG } from "./session.config";
 
-export const CONFIG = { SESSION_CONFIG }
+export const CONFIG = { SESSION_CONFIG };
