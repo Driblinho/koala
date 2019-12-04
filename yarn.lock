@@ -3357,8 +3357,9 @@ micromatch@^3.1.10, micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-"micromatch@github:jonschlinkert/micromatch#2.2.0":
+micromatch@jonschlinkert/micromatch#2.2.0:
   version "2.2.0"
+  uid "5017fd78202e04c684cc31d3c2fb1f469ea222ff"
   resolved "https://codeload.github.com/jonschlinkert/micromatch/tar.gz/5017fd78202e04c684cc31d3c2fb1f469ea222ff"
   dependencies:
     arr-diff "^1.0.1"
@@ -5025,10 +5026,10 @@ type-is@^1.6.16:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-typeorm@0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.1.11.tgz#97ac7176a12d5c8edc94192ca627e61b70bdf2a1"
-  integrity sha512-e8Ps0xvxdiKddNwWauH4KDHdLZ64QNn2lylMz2nu8ZeNbSBi0TBPfbYdxUzGtw6fqEyFJEwxgvD7vNjBi11t3Q==
+typeorm@0.1.15:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.1.15.tgz#ca2c2bf588258a73b49b8eb2fc08ce714b93d79c"
+  integrity sha512-24358b5QXiVpT7vax5qTphaRFlYwjomuzQgtmq3VcXCQ+oH1/uTXi2ziseEWf+IHwW3450u5GvRcnPHtlvy3dQ==
   dependencies:
     app-root-path "^2.0.1"
     chalk "^2.0.1"
