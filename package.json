@@ -29,9 +29,11 @@
         "koa-bodyparser": "^4.2.0",
         "koa-router": "^7.3.0",
         "koa-session": "^5.8.1",
+        "mem": "^4.0.0",
         "pg": "^7.3.0",
         "pino": "^4.10.3",
         "reflect-metadata": "^0.1.10",
+        "set-value": "^3.0.1",
         "typeorm": "0.1.15",
         "uuid": "^3.2.1"
     },
