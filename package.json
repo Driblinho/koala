@@ -15,14 +15,14 @@
         "ava-ts": "^0.24.0",
         "nodemon": "^1.14.11",
         "supertest": "^3.0.0",
-        "ts-node": "3.3.0",
+        "ts-node": "8.5.4",
         "tslint-microsoft-contrib": "^5.0.2",
-        "typescript": "2.6.2"
+        "typescript": "3.7.2"
     },
     "dependencies": {
         "glob-fs": "^0.1.7",
-        "inversify": "^4.9.0",
-        "inversify-binding-decorators": "^3.2.0",
+        "inversify": "^5.0.1",
+        "inversify-binding-decorators": "^4.0.0",
         "inversify-inject-decorators": "^3.1.0",
         "inversify-koa-utils": "^1.0.0",
         "koa": "^2.4.1",
@@ -38,10 +38,11 @@
         "uuid": "^3.2.1"
     },
     "scripts": {
-        "start": "PORT=3000 ts-node -F src/app.ts",
+        "start": "cd dist && PORT=3000 node app.js",
         "test": "ava-ts **/*.spec.ts",
-        "dev": "PORT=8081 nodemon --exec ts-node src/app.ts",
+        "dev": "PORT=8081 RUN_TYPE=2 nodemon --exec node_modules/.bin/ts-node src/app.ts",
         "dev-db": "docker stack deploy -c docker.yml koala-app",
+        "build": "tsc --build tsconfig.json",
         "install-dev-global": "No suported yet"
     }
 }
