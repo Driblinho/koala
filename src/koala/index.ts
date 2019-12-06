@@ -1,11 +1,4 @@
-import { koalaIoC } from "./ioc/inversify.config";
-import { CONFIG } from "./config";
-import { KOALA_TYPES } from "./ioc/types";
-import { providers } from "./database";
-
-export {
-    koalaIoC,
-    CONFIG,
-    KOALA_TYPES,
-    providers
-};
+export * from "./ioc/inversify.config";
+export * from "./config";
+export * from "./ioc/types";
+export * from  "./database";
