@@ -1,5 +1,6 @@
 import test from "ava";
 import * as request from "supertest";
+process.env.RUN_TYPE = '2'
 import { koalaServer } from "./app";
 
 test.afterEach(() => { koalaServer.close(); });

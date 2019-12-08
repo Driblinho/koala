@@ -1,45 +1,56 @@
 import * as path from 'path'
+import * as fs from 'fs'
 import { Container } from "inversify";
-import * as Glob from "glob-fs";
 import { ObjectType, Entity } from "typeorm";
-const glob = new Glob();
-
 const RUN_TYPE: number = Number(process.env.RUN_TYPE) || 1;
 
 export namespace loader {
 
-    export function findAll(fileExtension: string, op: (className: string, classInstance: any) => void) {
-        let files
-
-        if(RUN_TYPE == 1) {
-            fileExtension = fileExtension.replace(".ts", ".js")
-            files = glob.readdirSync(`/**/*.${fileExtension}`)
-        } else if(RUN_TYPE == 2) {
-            files = glob.readdirSync(`./src/**/*.${fileExtension}`)
-        }
-        
-        files.forEach(file => {
-            let requireFile;
-            if (RUN_TYPE == 2) {
-                requireFile = require(`../../../${file}`);
-            } else {
-                requireFile = require(`./../../${file}`);
+    function getFileFromDir(dir) {
+        var results = [];
+        var list = fs.readdirSync(dir);
+        list.forEach(function(file) {
+            file = dir + '/' + file;
+            var stat = fs.statSync(file);
+            if (stat && stat.isDirectory()) { 
+                /* Recurse into a subdirectory */
+                results = results.concat(getFileFromDir(file));
+            } else { 
+                /* Is a file */
+                results.push(file);
             }
-            
-            const className = Object.keys(requireFile).pop();
-            op(className, requireFile[className]);
         });
+        return results;
+    }
+
+    
+
+    export function findAndLoad(fileExtension: string, op: (className: string, classInstance: any) => void) {
+         
+        if(RUN_TYPE!=2) 
+            fileExtension = fileExtension.replace(".ts", ".js")
+            
+        const myRegx = new RegExp(`([a-zA-Z0-9\\s_\\\.\\-\\(\\):])+(.${fileExtension})$`)
+
+        getFileFromDir(path.join(__dirname, '/../..')).forEach(file => {
+            if(myRegx.test(file)) {
+                const requireFile = require(file);
+                const className = Object.keys(requireFile).pop();
+                op(className, requireFile[className]);   
+            }
+        })
+
     }
 
     export function findControllers(controller: (className: string, classInstance: any) => void) {
-        findAll("controller.ts", controller);
+        findAndLoad("controller.ts", controller);
     }
 
     export function findServices(service: (classInstance: any) => void) {
-        findAll("service.ts", (n, i) => service(i));
+        findAndLoad("service.ts", (n, i) => service(i));
     }
 
     export function findRepository(repo: (className: string, classInstance: Function) => void) {
-        findAll("entity.ts", repo);
+        findAndLoad("entity.ts", repo);
     }
 }
