@@ -32,7 +32,7 @@
         "pg": "^7.3.0",
         "pino": "^4.10.3",
         "reflect-metadata": "^0.1.10",
-        "set-value": "^3.0.1",
+        "set-value": "^4.0.1",
         "typeorm": "0.2.20",
         "uuid": "^3.2.1"
     },
